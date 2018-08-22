@@ -38,7 +38,7 @@ func main() {
 			return
 		}
 		if n <= 0 {
-			fmt.Println("only positive numbers allowed")
+			fmt.Println("Only positive numbers allowed")
 			return
 		}
 		if n > max {
@@ -50,7 +50,7 @@ func main() {
 	duplicates := duplicateIntegers(arr, max)
 	duplicatesUsingMap := duplicateIntegersUsingMap(arr)
 
-	fmt.Println("The duplicate numbers are: ")
+	fmt.Println("\nThe duplicate numbers are: ")
 	fmt.Println(duplicates)
 	fmt.Println(duplicatesUsingMap)
 }
