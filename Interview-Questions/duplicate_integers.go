@@ -34,7 +34,7 @@ func main() {
 	for _, num := range nums {
 		n, err := strconv.Atoi(num)
 		if err != nil {
-			fmt.Println("Error has occured: \n", err.Error())
+			fmt.Println("Error has occurred: \n", err.Error())
 			return
 		}
 		if n <= 0 {
