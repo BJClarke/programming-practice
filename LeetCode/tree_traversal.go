@@ -14,12 +14,6 @@ import (
     "fmt"
 )
 
-type TreeNode struct {
-    Val int
-    Left *TreeNode
-    Right *TreeNode
-}
-
 func main() {
     scanner := bufio.NewScanner(os.Stdin)
 
@@ -39,9 +33,9 @@ func main() {
         arr = append(arr, n)
     }
 
-    root := insertAll(arr)
+    root := InsertAll(arr)
 
-    printTree(root)
+    PrintTree(root)
 
     pre := preorderTraversal(root)
     in := inorderTraversal(root)
@@ -55,47 +49,6 @@ func main() {
 
     fmt.Println("\nThe postorder traversal of the tree is: ")
     fmt.Println(post)
-}
-
-func insertAll(arr []int) *TreeNode {
-    var root *TreeNode
-    for _, num := range arr {
-        root = insert(root, num)
-    }
-    return root
-}
-
-func insert(root *TreeNode, num int) *TreeNode {
-    if root == nil {
-        return &TreeNode {
-            Val: num,
-        }
-    } else {
-        if num < root.Val {
-            root.Left = insert(root.Left, num)
-        } else {
-            root.Right = insert(root.Right, num)
-        }
-    }
-    return root
-}
-
-func printTree(root *TreeNode) {
-    fmt.Println("")
-    printTreeRecursive(root, 0)
-}
-
-func printTreeRecursive(root *TreeNode, level int) {
-    fmt.Print(fmt.Sprintf("Row %d ", level))
-    fmt.Println("Val: ", root.Val)
-    if root.Left != nil {
-        fmt.Print("Left ")
-        printTreeRecursive(root.Left, level+1)
-    }
-    if root.Right != nil {
-        fmt.Print("Right ")
-        printTreeRecursive(root.Right, level+1)
-    }
 }
 
 func inorderTraversal(root *TreeNode) []int {
